@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Mail, Phone, Tv } from "lucide-react"
+import { Mail, Phone, Tv, Check } from "lucide-react"
 
 export default function Component() {
   const [formData, setFormData] = useState({
@@ -134,27 +134,31 @@ export default function Component() {
 function SuccessPage({ formData }: { formData: any }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 flex flex-col border-0">
-      {/* Success Section */}
-      <div className="flex items-center justify-center pt-8 pb-8 relative overflow-hidden">
-        <div className="text-center relative">
-          {/* Main success icon */}
-          <div className="relative mb-6">
-            <img
-              src="/images/success-checkmark.png"
-              alt="Success Checkmark"
-              className="h-28 w-44 mx-auto" // Maintain similar sizing and centering
-            />
+      {/* Success Section - WITH ONE ANIMATED CHECKMARK */}
+      <div className="flex items-center justify-center pt-8 pb-8">
+        <div className="text-center">
+          {/* Single animated checkmark above text */}
+          <div className="flex justify-center mb-4">
+            <div
+              className="inline-flex items-center justify-center w-16 h-16 bg-green-500 rounded-full animate-bounce shadow-lg"
+              style={{
+                animationDuration: "1.5s",
+                animationIterationCount: "infinite",
+              }}
+            >
+              <Check className="w-8 h-8 text-white" />
+            </div>
           </div>
 
-          {/* Text */}
+          {/* Text without checkmarks */}
           <div className="space-y-2">
-            <h1 className="text-2xl font-bold text-green-700 mb-3 tracking-tight">Registration Successful! 🎉</h1>
-            <p className="text-lg text-green-600 font-medium">Welcome, Afrida</p>
+            <h1 className="text-2xl font-bold text-green-700 tracking-tight mb-3">Registration Successful!</h1>
+            <p className="text-lg text-green-600 font-medium">Welcome, Afrida 🎉</p>
           </div>
         </div>
       </div>
 
-      {/* Tabbed Access Guide */}
+      {/* Tabbed Access Guide - NO ANIMATIONS */}
       <div className="max-w-6xl mx-auto mt-4 flex-grow">
         <Card className="shadow-2xl border-0 rounded-lg">
           <CardHeader className="text-center bg-gradient-to-r from-gray-900 to-gray-700 text-white py-12 rounded-t-lg rounded-b-none leading-[1.70rem]">
@@ -206,17 +210,16 @@ function SuccessPage({ formData }: { formData: any }) {
                       1
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Initial Login Screen</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Continue on STB</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-step1-splash-screen.png"
-                          alt="Initial Login Screen"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-24%2015-41-40-gu8Dt8RhDL64Kp7xds6SrX1J7Lk85u.png"
+                          alt="OneStream Initial Splash Screen"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
                       <p className="text-gray-600">
-                        On the STB display, you will see the initial login screen. Click <strong>'Continue'</strong> to
-                        proceed.
+                        On the STB display, click <strong>'Continue'</strong> to proceed with the login process.
                       </p>
                     </div>
                   </div>
@@ -235,17 +238,16 @@ function SuccessPage({ formData }: { formData: any }) {
                       2
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Login with Mobile App Options</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Display QR Code or Pairing Code</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-step2-scan-input.png"
-                          alt="Login with Mobile App Options"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-24%2015-41-50-2k4GjK9GBIAhNrAH3gNKxSGiLR6Zj5.png"
+                          alt="OneStream TV Screen with QR Code and Input Code Options"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
                       <p className="text-gray-600">
-                        On your mobile app, you will find options to log in by scanning a QR code or manually inputting
-                        a code.
+                        A QR Code or pairing code will be displayed on the STB screen for authentication.
                       </p>
                     </div>
                   </div>
@@ -264,17 +266,16 @@ function SuccessPage({ formData }: { formData: any }) {
                       3
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Successfully Paired Confirmation</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Open FMX App</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-step3-login-confirmation.png"
-                          alt="Successfully Paired Confirmation"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Scan%20qr%20code%20Login-F5ckK5BDs4mlvX6ycjuCHcwjOwQZcE.png"
+                          alt="FMX App QR Code Scanner Interface"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
                       <p className="text-gray-600">
-                        A confirmation pop-up will appear on your mobile device, indicating that the pairing process was
-                        successful.
+                        Launch the FMX app on your smartphone to begin the pairing process.
                       </p>
                     </div>
                   </div>
@@ -293,17 +294,17 @@ function SuccessPage({ formData }: { formData: any }) {
                       4
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Connect to STB Successfully</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Scan or Input Code</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-step4-stb-update-implied.png"
-                          alt="Connect to STB Successfully"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Code%20Login%201-WHpsNNOaJgB5Wa9hUvaQlXYSJdmCb4.png"
+                          alt="FMX App TV Code Input Screen"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
                       <p className="text-gray-600">
-                        After successful pairing, you will see a confirmation message indicating that your device is
-                        connected to the STB.
+                        In the FMX app, either scan the QR Code or manually input the pairing code displayed on your
+                        STB.
                       </p>
                     </div>
                   </div>
@@ -322,18 +323,15 @@ function SuccessPage({ formData }: { formData: any }) {
                       5
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">OneStream Home Screen</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Complete Pairing Process</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-step5-home-screen.jpeg"
-                          alt="OneStream Home Screen"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%2017597-s9M3VrW2yUeCGhc08eaRpjt1aeSN3P.png"
+                          alt="FMX App Successfully Paired Confirmation Pop-up"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
-                      <p className="text-gray-600">
-                        This is the main home screen of OneStream, where you can browse various content categories like
-                        movies, kids, music, and e-sport.
-                      </p>
+                      <p className="text-gray-600">Wait for the pairing process to complete in the FMX app.</p>
                     </div>
                   </div>
                 </div>
@@ -351,16 +349,17 @@ function SuccessPage({ formData }: { formData: any }) {
                       6
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Scan QR Code</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Pairing Successful</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-scan-qr-code.png"
-                          alt="Scan QR Code"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Code%20Login-uXTy7rIZMtGCronaHnLNPB88NL2FRx.png"
+                          alt="FMX App Connect to STB Successfully Notification"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
                       <p className="text-gray-600">
-                        Use your mobile device's camera to scan the QR code displayed on the STB screen.
+                        A <strong>'Pairing Successful'</strong> notification will appear in the FMX app, confirming the
+                        connection.
                       </p>
                     </div>
                   </div>
@@ -379,17 +378,17 @@ function SuccessPage({ formData }: { formData: any }) {
                       7
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-800 mb-3 text-lg">Enter TV Code</h3>
+                      <h3 className="font-bold text-gray-800 mb-3 text-lg">STB Display Updates & Enter Home</h3>
                       <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                         <img
-                          src="/images/onestream-enter-tv-code.png"
-                          alt="Enter TV Code"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Default.jpg-v21EtotZ7vG5lHGRbk7PznXDp0Jqfy.jpeg"
+                          alt="OneStream Home Screen on TV"
                           className="w-full h-full object-contain rounded-lg shadow-md"
                         />
                       </div>
                       <p className="text-gray-600">
-                        Alternatively, you can manually enter the 6-digit TV code displayed on your TV screen into the
-                        mobile app.
+                        The STB display will automatically update indicating successful login through the app, and you
+                        will be directed to the Home screen ready to use all STB services.
                       </p>
                     </div>
                   </div>
@@ -409,21 +408,45 @@ function SuccessPage({ formData }: { formData: any }) {
               </div>
 
               {/* HBO Sub-tabs */}
-              <Tabs defaultValue="connect-stb" className="w-full">
+              <Tabs defaultValue="setup-account" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8">
-                  <TabsTrigger
-                    value="connect-stb"
-                    className="text-base font-medium py-3 px-6 bg-white border border-gray-200 rounded-lg data-[state=active]:bg-blue-50 data-[state=active]:text-blue-600 data-[state=active]:border-blue-200"
-                  >
-                    Connect via STB
-                  </TabsTrigger>
                   <TabsTrigger
                     value="setup-account"
                     className="text-base font-medium py-3 px-6 bg-white border border-gray-200 rounded-lg data-[state=active]:bg-blue-50 data-[state=active]:text-blue-600 data-[state=active]:border-blue-200"
                   >
                     Set up your HBO Max account
                   </TabsTrigger>
+                  <TabsTrigger
+                    value="connect-stb"
+                    className="text-base font-medium py-3 px-6 bg-white border border-gray-200 rounded-lg data-[state=active]:bg-blue-50 data-[state=active]:text-blue-600 data-[state=active]:border-blue-200"
+                  >
+                    Connect via STB
+                  </TabsTrigger>
                 </TabsList>
+
+                {/* Set up HBO Max account Tab */}
+                <TabsContent value="setup-account" className="mt-0">
+                  <div className="flex justify-center">
+                    <div
+                      className="bg-blue-50 p-6 rounded-xl border-l-4 hover:shadow-lg transition-all duration-300 max-w-4xl w-full"
+                      style={{ borderColor: "#0029E2" }}
+                    >
+                      <h3 className="font-bold text-gray-800 mb-4 text-xl text-center">Set up your HBO Max account</h3>
+                      <div className="w-full flex flex-col items-center justify-center bg-white rounded-lg p-4">
+                        <img
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frame%2017791-Z4d1TCAWnjUvUVTTy8UZ5Z2ZLFhrmx.png"
+                          alt="HBO Max Account Activation Guide - 5 Step Process"
+                          className="w-full h-auto object-contain rounded-lg"
+                        />
+                        <div className="mt-6 mb-4 flex justify-center">
+                          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 text-lg font-medium">
+                            Activate Now
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
 
                 {/* Connect via STB Tab */}
                 <TabsContent value="connect-stb" className="mt-0">
@@ -444,8 +467,8 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">Access STB Menu</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-login-screen-v2.jpeg"
-                              alt="HBO Max Login Screen"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2016.14.11_fada2d51.jpg-BVu0phsAQaaMaVcNmA0FwKUDgxSA9B.jpeg"
+                              alt="HBO Max Sign In Screen on TV"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
@@ -472,8 +495,8 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">Scan QR Code</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-qr-code-screen.jpeg"
-                              alt="HBO Max QR Code Screen"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2016.14.32_0f550520.jpg-gWqhVeanfcPVKtHBD4DlrOiXUcoGcj.jpeg"
+                              alt="HBO Max QR Code and 6-digit Code for Sign In"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
@@ -501,8 +524,8 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">Enter Email</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-email-input.jpeg"
-                              alt="HBO Max Email Input Screen"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2016.15.09_a31e0630.jpg-1yGwqhmqwoqa4GpoVEFvQ09LmLVxwI.jpeg"
+                              alt="HBO Max Mobile App Email Input Screen"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
@@ -527,8 +550,8 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">Enter Password</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-password-input.jpeg"
-                              alt="HBO Max Password Input Screen"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2023.12.50_b878ca14.jpg-bKAbNcAVC7QQTJYZG8y7R3yx0rznM7.jpeg"
+                              alt="HBO Max Mobile App Password Input Screen"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
@@ -553,8 +576,8 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">Login Confirmation</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-all-done.jpeg"
-                              alt="HBO Max Login Successful Notification"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2016.15.42_ba661ba7.jpg-i9zVKweD6Tl3GuKAYLtcfgxeriMPvc.jpeg"
+                              alt="HBO Max Mobile App All Done Confirmation"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
@@ -581,8 +604,8 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">STB Display Changes & Access Profile</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-profile-selection.jpeg"
-                              alt="HBO Max Profile Selection Menu"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2016.16.14_70d00273.jpg-ghfCNM61CmubvntksLNsHxtXuIFFuR.jpeg"
+                              alt="HBO Max Profile Selection Screen on TV"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
@@ -611,38 +634,14 @@ function SuccessPage({ formData }: { formData: any }) {
                           <h3 className="font-bold text-gray-800 mb-3 text-lg">Enter Home</h3>
                           <div className="w-full h-64 flex items-center justify-center mb-4 bg-gray-100 rounded-lg">
                             <img
-                              src="/images/hbo-max-home-screen.jpeg"
-                              alt="HBO Max Home Screen"
+                              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-07-24%20at%2016.16.33_092edb83.jpg-mdIyQiUt3MmqNsfJIBltHIf71XU4m6.jpeg"
+                              alt="HBO Max Home Screen with Content"
                               className="w-full h-full object-contain rounded-lg shadow-md"
                             />
                           </div>
                           <p className="text-gray-600">
                             You will be directed to the Home display and are ready to use the STB services.
                           </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </TabsContent>
-
-                {/* Set up HBO Max account Tab */}
-                <TabsContent value="setup-account" className="mt-0">
-                  <div className="flex justify-center">
-                    <div
-                      className="bg-blue-50 p-6 rounded-xl border-l-4 hover:shadow-lg transition-all duration-300 max-w-4xl w-full"
-                      style={{ borderColor: "#0029E2" }}
-                    >
-                      <h3 className="font-bold text-gray-800 mb-4 text-xl text-center">Set up your HBO Max account</h3>
-                      <div className="w-full flex flex-col items-center justify-center bg-white rounded-lg p-4">
-                        <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Frame%2017791-Z4d1TCAWnjUvUVTTy8UZ5Z2ZLFhrmx.png"
-                          alt="HBO Max Account Activation Guide - 5 Step Process"
-                          className="w-full h-auto object-contain rounded-lg"
-                        />
-                        <div className="mt-6 mb-4 flex justify-center">
-                          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 text-lg font-medium">
-                            Activate Now
-                          </Button>
                         </div>
                       </div>
                     </div>
